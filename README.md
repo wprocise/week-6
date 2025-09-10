@@ -1,4 +1,4 @@
-# Week 5
+# Week 6
 
 This week's lab is meant to introduce you to APIs and Multiprocessing. Often, these two concepts go well together, but on their own, each are powerful tools for gathering data. Further, Multiprocessing is quite helpful for speeding up routines on large datasets which can be done in parallel. In particular, we'll cover the following topics:
 
@@ -19,7 +19,7 @@ This week's lab is meant to introduce you to APIs and Multiprocessing. Often, th
 The environment for this week is built with the following environment.yml:
 
 ```yml
-name: week-5
+name: week-6
 dependencies:
   - python=3.11
   - pip
