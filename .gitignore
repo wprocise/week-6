@@ -29,6 +29,7 @@ cython_debug/
 # project
 .env
 .vscode/
+temp.json
 
 # environment (ignore one, use the other)
 # environment.yml
