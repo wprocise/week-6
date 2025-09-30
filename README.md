@@ -10,7 +10,7 @@ This week's lab is meant to introduce you to APIs and Multiprocessing. Often, th
 ## Setup
 
 1. [Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo#forking-a-repository) this repository.
-2. [Create a Codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) for your repository. Use this to view the lab notebook and work on your weekly coding exercise.
+2. This week, you will be saving a **.env** file that will be *ignored* by git. For this reason, you might find it safest to [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui) your fork of the weekly repository, and work locally on VS Code instead of on a codespace. That said, you are still welcome to [create a Codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository) for your repository; just make sure to save your **.env** file somewhere safe in case you need to restart the codespace.
 3. **Upload** the .env file shared with you on Canvas. This is needed to run the lab notebook.
 4. Once you're ready, [commit and push](https://docs.github.com/en/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace#committing-your-changes) your final changes to your repository. *Note: You can also make quick edits using the [GitHub Dev Editor](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor#opening-the-githubdev-editor).*
 
