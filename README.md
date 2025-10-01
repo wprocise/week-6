@@ -1,6 +1,6 @@
 # Week 6
 
-This week's lab is meant to introduce you to some useful tools for gathering data. We will also touch on a few more in-depth Python techniques such as decorators.
+This week's lab is meant to introduce you to some useful tools for gathering data. We will also cover a few more in-depth Python techniques such as classes and running scripts.
 
 In particular, we'll cover the following topics:
 
