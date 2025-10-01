@@ -169,10 +169,11 @@ if __name__ == "__main__":
     #                 'Slowdive', 
     #                 'Men I Trust']
     
-    # (optional) if you need to pass multiple arguments
+    # # (optional) if you need to pass multiple arguments
     # n = 20
+
+    #  # then "unpack" `args` within the function (e.g., args[0])
     # args = [(t, n) for t in search_terms]
-    # then "unpack" `args` within the function (e.g., args[0])
 
     # with Pool(8) as p:
     #     results = p.map(genius_to_df, search_terms)
