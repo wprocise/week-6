@@ -118,11 +118,10 @@ def testing():
     print('Testing 1, 2, 3 ...')
     return None
 
-def job_test(num):
+def job_test(num, mult=2):
     print(f'PID: {os.getpid()} ... num:', num)
-    # pause for a sec
     sleep(uniform(0.5, 1.5))
-    return num * 2
+    return num * mult
 
 
 # print("__name__ is", __name__)
