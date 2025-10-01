@@ -32,6 +32,7 @@ dependencies:
     - streamlit
     - seaborn
     - pandas
+    - joblib
     - numpy
     - python-dotenv
     - requests
