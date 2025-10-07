@@ -69,5 +69,19 @@ load_dotenv('week-6.env')
 class Genius:
     def __init__self():
         self.access_token = os.getenv('ACCESS_TOKEN')
+    """
+        New method to get artist information for a list of search terms
+        Getting artist information using the get_artist method
+        and converting the JSON response to a pandas DataFrame
+    """
+    def get_artist(self, search_term):
+        search_url = f"http://api.genius.com/search?q={search_term}&access_token={self.access_token}"
+        response = requests.get(search_url)
+        json_data = response.json()
+        artist_id = json_data['response']['hits'][0]['result']['primary_artist']['id']
+        artist_url = f"http://api.genius.com/artists/{artist_id}?access_token={self.access_token}"
+        artist_response = requests.get(artist_url)
+        artist_data = artist_response.json()
+        return artist_data
 
 
