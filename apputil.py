@@ -56,4 +56,18 @@ print(artist_info) # should print the JSON object with artist information
 # Output: JSON object with artist information for Missy Elliott
 
 ## Exercise 3
+"""
+    Use the Genius class to get artist information
+    and convert it to a pandas DataFrame
+"""
+import requests
+import pandas as pd
+import os
+from dotenv import load_dotenv
+load_dotenv('week-6.env')
+
+class Genius:
+    def __init__self():
+        self.access_token = os.getenv('ACCESS_TOKEN')
+
 
