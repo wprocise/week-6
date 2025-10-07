@@ -33,4 +33,6 @@ temp.json
 
 # environment (ignore one, use the other)
 # environment.yml
+# week-6.env
 requirements.txt
+week-6.env
