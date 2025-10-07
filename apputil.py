@@ -83,5 +83,23 @@ class Genius:
         artist_response = requests.get(artist_url)
         artist_data = artist_response.json()
         return artist_data
+    """
+        Defining columns and creating DataFrame
+        Returns DataFrame with artist details
+    """
+    def get_artists(self, search_terms):
+        records = []
+        for term in search_terms:
+            artist_info = self.get_artist(term)
+            artist_data = artist_info['response']['artist']
+            record = {
+                'search_term': term,
+                'artist_name': artist_data.get('name'),
+                'artist_id': artist_data.get('id'),
+                'follower_count': artist_data.get('followers_count')
+            }
+            records.append(record)
+        df = pd.DataFrame(records)
+        return df
 
 
