@@ -101,5 +101,11 @@ class Genius:
             records.append(record)
         df = pd.DataFrame(records)
         return df
+genius = Genius()
+search_terms = ["Shaboozey", "Usher", "Taylor Swift", "Drake"]
+df = genius.get_artists(search_terms)
+print(df)
+# Output: DataFrame with artist details for the search terms with columns: search_term, artist_name, artist_id, follower_count
+
 
 
