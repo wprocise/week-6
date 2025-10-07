@@ -1,4 +1,4 @@
-## Exercise 1
+# Exercise 1
 """
     Download the .env file 
     and added to the .gitignore;
@@ -21,7 +21,7 @@ print(f"Access token set to: {genius.access_token}")
 
 # Output: ACCESS_TOKEN: vw58dWIGES4DS1hb7pYPdbSyEIR_klztMKLcOgK3HtH2qFCn9EESV5p7xs96IiQc
 
-## Exercise 2
+# Exercise 2
 
 """
     Define genius class and retrieve access token;
@@ -55,7 +55,7 @@ print(artist_info) # should print the JSON object with artist information
 
 # Output: JSON object with artist information for Missy Elliott
 
-## Exercise 3
+# Exercise 3
 """
     Use the Genius class to get artist information
     and convert it to a pandas DataFrame
