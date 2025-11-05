@@ -1,41 +1,48 @@
+from dotenv import load_dotenv
 import os
 import requests
 import pandas as pd
-from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv("week-6.env")
 
 class Genius:
-    """Simple wrapper around the Genius API."""
-
-    def __init__(self, access_token=None):
-        load_dotenv("week-6.env")  # safe call, no error if missing
-
-        # prefer explicit token, fallback to environment variable
-        self.access_token = access_token or os.getenv("ACCESS_TOKEN")
-
+    def __init__(self):
+        self.access_token = os.getenv("ACCESS_TOKEN")
         if not self.access_token:
-            raise ValueError("A Genius API access token is required.")
+            raise ValueError("ACCESS_TOKEN not found. Make sure it is set in week-6.env")
 
-        self.session = requests.Session()
-        self.session.headers.update({"Authorization": f"Bearer {self.access_token}"})
+    def get_artist(self, search_term):
+        """Returns full artist JSON object for a given search term."""
+        search_url = f"https://api.genius.com/search?q={search_term}&access_token={self.access_token}"
+        response = requests.get(search_url)
+        json_data = response.json()
 
-    def _request(self, endpoint, params=None):
-        """Internal helper to call Genius API."""
-        url = f"{self.BASE_URL}{endpoint}"
-        response = self.session.get(url, params=params or {})
-        response.raise_for_status()
-        return response.json()
+        artist_id = json_data['response']['hits'][0]['result']['primary_artist']['id']
+        artist_url = f"https://api.genius.com/artists/{artist_id}?access_token={self.access_token}"
+        artist_response = requests.get(artist_url)
+        return artist_response.json()
 
-    def get_artist(self, artist_id: int) -> dict:
-        """Return a dictionary containing artist info: name + id."""
-        data = self._request(f"/artists/{artist_id}")
-        artist = data["response"]["artist"]
-        return {"id": artist["id"], "name": artist["name"]}
+    def get_artists(self, search_terms):
+        """Returns a Pandas DataFrame with selected artist info."""
+        records = []
+        for term in search_terms:
+            data = self.get_artist(term)['response']['artist']
+            records.append({
+                "search_term": term,
+                "artist_name": data.get("name"),
+                "artist_id": data.get("id"),
+                "follower_count": data.get("followers_count")
+            })
+        return pd.DataFrame(records)
 
-    def get_artists(self, artist_ids: list[int]) -> pd.DataFrame:
-        """Return a pandas DataFrame with columns: id, name."""
-        artists = [self.get_artist(aid) for aid in artist_ids]
-        return pd.DataFrame(artists)
+
+# Run only when file is executed directly (not imported)
+if __name__ == "__main__":
+    genius = Genius()
+    search_terms = ["Shaboozey", "Usher", "Taylor Swift", "Drake"]
+    df = genius.get_artists(search_terms)
+    print(df)
 
 
 
