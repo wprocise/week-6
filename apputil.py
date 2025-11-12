@@ -37,12 +37,7 @@ class Genius:
         return pd.DataFrame(records)
 
 
-# Run only when file is executed directly (not imported)
-if __name__ == "__main__":
-    genius = Genius()
-    search_terms = ["Shaboozey", "Usher", "Taylor Swift", "Drake"]
-    df = genius.get_artists(search_terms)
-    print(df)
+
 
 
 
