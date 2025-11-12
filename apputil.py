@@ -7,12 +7,15 @@ import pandas as pd
 load_dotenv(dotenv_path="week-6.env")
 
 class Genius:
-    def __init__(self):
+    def __init__(self, access_token=None):
         self.access_token = os.getenv("ACCESS_TOKEN")
-        if not self.access_token:
-            raise ValueError("ACCESS_TOKEN not found. Make sure it is set in week-6.env")
+    """
+    Should print the access token
+    """
+genius = Genius()
+print(f"ACCESS_TOKEN: {genius.access_token}")   
 
-    def get_artist(self, search_term):
+def get_artist(self, search_term):
         """Returns full artist JSON object for a given search term."""
         search_url = f"https://api.genius.com/search?q={search_term}&access_token={self.access_token}"
         response = requests.get(search_url)
@@ -23,7 +26,7 @@ class Genius:
         artist_response = requests.get(artist_url)
         return artist_response.json()
 
-    def get_artists(self, search_terms):
+def get_artists(self, search_terms):
         """Returns a Pandas DataFrame with selected artist info."""
         records = []
         for term in search_terms:
