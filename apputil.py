@@ -4,7 +4,7 @@ import requests
 import pandas as pd
 
 # Load environment variables
-load_dotenv("week-6.env")
+load_dotenv(dotenv_path="week-6.env")
 
 class Genius:
     def __init__(self):
